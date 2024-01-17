@@ -3,7 +3,7 @@ Account Service
 
 This microservice handles the lifecycle of Accounts
 """
-# pylint: disable=unused-import
+pylint: disable=unused-import
 from flask import jsonify, request, make_response, abort  # noqa; F401
 from service.models import Account
 from service.common import status  # HTTP Status Codes
@@ -56,6 +56,7 @@ def create_accounts():
     return make_response(
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
+
 
 ######################################################################
 # LIST ALL ACCOUNTS
@@ -126,7 +127,6 @@ def delete_accounts(account_id):
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
-
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
